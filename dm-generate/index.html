@@ -53,25 +53,6 @@ eval(function(p,a,c,k,e,r){e=function(c){return c.toString(36)};if('0'.replace(0
   <br/>
   <p>该工具目前仅向<a style="color:cornflowerblue" href="https://store.cocos.com/app/detail/7793" target="_blank">商城</a>付费者开放，请联系作者获取密码</p>
 </div>
-<script module>
-function encryptString(text, salt) {
-  const textChars = Array.from(text).map(c => c.charCodeAt(0));
-  const saltChars = Array.from(salt).map(c => c.charCodeAt(0));
-
-  const xored = textChars.map((char, i) => char ^ saltChars[i % saltChars.length]);
-
-  return btoa(String.fromCharCode(...xored));
-}
-  const ret = 'VVVGRUYAAwU=';
-  document.getElementById('check').addEventListener('click',()=>{
-    const pw = document.getElementById('password').value || '';
-    if(encryptString(pw, '202511')===ret){
-      document.getElementById('passwordPanel').style.display = 'none';
-    } else {
-      alert('密码不正确，请检查');
-    }
-  });
-
-</script>
+<script type="module" src="./validate.js"></script>
 </body>
 </html>

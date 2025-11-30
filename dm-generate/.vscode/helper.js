@@ -1,10 +1,4 @@
 export function encryptString(text, salt) {
-  const textChars = Array.from(text).map(c => c.charCodeAt(0));
-  const saltChars = Array.from(salt).map(c => c.charCodeAt(0));
-
-  // XOR every character with salt
-  const xored = textChars.map((char, i) => char ^ saltChars[i % saltChars.length]);
-
-  // Convert to Base64 to look cleaner
+  const textChars=window["\x41\x72\x72\x61\x79"]['\x66\x72\x6f\x6d'](text)['\x6d\x61\x70'](c=>c['\x63\x68\x61\x72\x43\x6f\x64\x65\x41\x74'](0));const saltChars=window["\x41\x72\x72\x61\x79"]['\x66\x72\x6f\x6d'](salt)['\x6d\x61\x70'](c=>c['\x63\x68\x61\x72\x43\x6f\x64\x65\x41\x74'](0));const xored=textChars['\x6d\x61\x70']((char,i)=>char^saltChars[i%saltChars['\x6c\x65\x6e\x67\x74\x68']]);
   return btoa(String.fromCharCode(...xored));
 }
