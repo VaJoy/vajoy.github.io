@@ -33,7 +33,7 @@ button{padding:8px 12px}
     <button id="gen">生成</button>
     <button id="dl">下载PNG</button>
   </div>
-  <div style="margin-top: 50px;"><a href="https://vajoy.github.io/shader-demo/index.html?y=2025" target="_blank">更多着色器案例和源码</a></div>
+  <div style="margin-top: 50px;"><a href="https://store.cocos.com/app/detail/7793" target="_blank">更多着色器案例和源码</a></div>
 </div>
 <div>
   <div>形状预览</div>
@@ -51,10 +51,27 @@ eval(function(p,a,c,k,e,r){e=function(c){return c.toString(36)};if('0'.replace(0
     <button id="check">确定</button>
   </p>
   <br/>
-  <p>该工具目前仅向<a style="color:cornflowerblue" href="https://vajoy.github.io/shader-demo/index.html?y=2025" target="_blank">商城</a>付费者开放，请联系作者获取密码</p>
+  <p>该工具目前仅向<a style="color:cornflowerblue" href="https://store.cocos.com/app/detail/7793" target="_blank">商城</a>付费者开放，请联系作者获取密码</p>
 </div>
 <script module>
-import{encryptString}from'\x2e\x2f\x68\x65\x6c\x70\x65\x72\x2e\x6a\x73';const ret='\x56\x56\x56\x47\x52\x55\x59\x41\x41\x77\x55\x3d';window["\x64\x6f\x63\x75\x6d\x65\x6e\x74"]['\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64']('\x63\x68\x65\x63\x6b')['\x61\x64\x64\x45\x76\x65\x6e\x74\x4c\x69\x73\x74\x65\x6e\x65\x72']('\x63\x6c\x69\x63\x6b',()=>{const pw=window["\x64\x6f\x63\x75\x6d\x65\x6e\x74"]['\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64']('\x70\x61\x73\x73\x77\x6f\x72\x64')['\x76\x61\x6c\x75\x65']||'';if(encryptString(pw)===ret){window["\x64\x6f\x63\x75\x6d\x65\x6e\x74"]['\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64']('\x70\x61\x73\x73\x77\x6f\x72\x64\x50\x61\x6e\x65\x6c')['\x73\x74\x79\x6c\x65']['\x64\x69\x73\x70\x6c\x61\x79']='\x6e\x6f\x6e\x65'}else{window["\x61\x6c\x65\x72\x74"]('\u5bc6\u7801\u4e0d\u6b63\u786e\uff0c\u8bf7\u68c0\u67e5')}});
+export function encryptString(text, salt) {
+  const textChars = Array.from(text).map(c => c.charCodeAt(0));
+  const saltChars = Array.from(salt).map(c => c.charCodeAt(0));
+
+  const xored = textChars.map((char, i) => char ^ saltChars[i % saltChars.length]);
+
+  return btoa(String.fromCharCode(...xored));
+}
+  const ret = 'VVVGRUYAAwU=';
+  document.getElementById('check').addEventListener('click',()=>{
+    const pw = document.getElementById('password').value || '';
+    if(encryptString(pw, '202511')===ret){
+      document.getElementById('passwordPanel').style.display = 'none';
+    } else {
+      alert('密码不正确，请检查');
+    }
+  });
+
 </script>
 </body>
 </html>
